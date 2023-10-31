@@ -115,7 +115,9 @@ func (g *game) loop() {
 		time.Sleep(time.Millisecond * 16)
 	}
 }
-func (g *game) update() {}
+func (g *game) update() {
+	g.player.update()
+}
 
 func (g *game) renderLevel() {
 	for h := 0; h < g.level.height; h++ {
