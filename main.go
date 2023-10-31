@@ -91,7 +91,13 @@ func (g *game) render() {
 	g.drawBuf.Reset()
 	fmt.Fprint(os.Stdout, "\033[2J\033[1;1H")
 	g.renderLevel()
+	g.renderStats()
 	fmt.Fprint(os.Stdout, g.drawBuf.String())
+}
+
+func (g *game) renderStats() {
+	g.drawBuf.WriteString("-- STATS\n")
+	g.drawBuf.WriteString(fmt.Sprintf("FPS: %.2f", 3.3))
 }
 
 func main() {
