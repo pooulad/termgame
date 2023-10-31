@@ -75,7 +75,7 @@ func main() {
 				buf.WriteString(" ")
 			}
 			if level[h][w] == wall {
-				buf.WriteString("H")
+				buf.WriteString("□")
 			}
 		}
 		buf.WriteString("\n")
