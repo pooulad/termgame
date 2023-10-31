@@ -32,6 +32,7 @@ type stats struct {
 func newStats() *stats {
 	return &stats{
 		start: time.Now(),
+		fps:   69,
 	}
 }
 
