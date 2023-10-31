@@ -159,9 +159,9 @@ func (g *game) update() {
 	g.level.set(g.player.pos, PLAYER)
 }
 
-func (g *game) renderPlayer() {
-	g.level.set(g.player.pos, 69)
-}
+// func (g *game) renderPlayer() {
+// 	g.level.set(g.player.pos, 69)
+// }
 
 func (g *game) renderLevel() {
 	for h := 0; h < g.level.height; h++ {
