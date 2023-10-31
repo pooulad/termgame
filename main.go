@@ -169,7 +169,7 @@ func (g *game) render() {
 	g.drawBuf.Reset()
 	fmt.Fprint(os.Stdout, "\033[2J\033[1;1H")
 	g.renderLevel()
-	g.renderPlayer()
+	// g.renderPlayer()
 	g.renderStats()
 	fmt.Fprint(os.Stdout, g.drawBuf.String())
 }
