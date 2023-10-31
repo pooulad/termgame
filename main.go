@@ -49,6 +49,7 @@ func newLevel(width, height int) *level {
 type game struct {
 	isRunning bool
 	level     *level
+	drawBuf   *bytes.Buffer
 }
 
 func newGame(width, height int) *game {
