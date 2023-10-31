@@ -19,8 +19,9 @@ type position struct {
 }
 
 type player struct {
-	pos   position
-	level *level
+	pos     position
+	level   *level
+	reverce bool
 }
 
 func (p *player) update() {
