@@ -18,6 +18,11 @@ type position struct {
 	x, y int
 }
 
+type player struct {
+	pos   position
+	level *level
+}
+
 type stats struct {
 	start  time.Time
 	frames int
