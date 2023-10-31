@@ -76,6 +76,7 @@ func (g *game) loop() {
 	for g.isRunning {
 		g.update()
 		g.render()
+		time.Sleep(time.Millisecond * 13)
 	}
 }
 func (g *game) update() {}
