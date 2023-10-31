@@ -19,8 +19,8 @@ func (g *game) render() {}
 
 func main() {
 	width := 80
-	height := 20
-	level := make([][]byte, 20)
+	height := 18
+	level := make([][]byte, 18)
 
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
@@ -30,6 +30,15 @@ func main() {
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
 			if w == width-1 {
+				level[h][w] = wall
+			}
+			if w == 0 {
+				level[h][w] = wall
+			}
+			if h == 0 {
+				level[h][w] = wall
+			}
+			if h == height-1 {
 				level[h][w] = wall
 			}
 		}
