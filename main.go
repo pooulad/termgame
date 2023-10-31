@@ -19,7 +19,7 @@ type input struct {
 }
 
 func (i *input) update() {
-	b := make([]byte, 0)
+	b := make([]byte, 1)
 	os.Stdin.Read(b)
 	i.pressedKey = b[0]
 }
@@ -130,7 +130,7 @@ func newGame(width, height int) *game {
 		level:   lvl,
 		drawBuf: new(bytes.Buffer),
 		stats:   newStats(),
-		input:   &input{},
+		input:   inp,
 		player: &player{
 			level: lvl,
 			input: inp,
@@ -149,6 +149,7 @@ func (g *game) start() {
 
 func (g *game) loop() {
 	for g.isRunning {
+		g.input.update()
 		g.update()
 		g.render()
 		g.stats.update()
