@@ -95,7 +95,7 @@ func (g *game) loop() {
 		g.update()
 		g.render()
 		g.stats.update()
-		time.Sleep(time.Millisecond * 13)
+		time.Sleep(time.Millisecond * 16)
 	}
 }
 func (g *game) update() {}
