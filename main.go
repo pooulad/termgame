@@ -40,7 +40,9 @@ func newLevel(width, height int) *level {
 		}
 	}
 	return &level{
-		data: data,
+		data:   data,
+		width:  width,
+		height: height,
 	}
 }
 type game struct {
