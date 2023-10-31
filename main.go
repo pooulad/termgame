@@ -21,8 +21,11 @@ type input struct {
 
 func (i *input) update() {
 	b := make([]byte, 1)
-	os.Stdin.Read(b)
-	i.pressedKey = b[0]
+
+	go func() {
+		os.Stdin.Read(b)
+		i.pressedKey = b[0]
+	}()
 }
 
 type position struct {
@@ -123,8 +126,8 @@ type game struct {
 }
 
 func newGame(width, height int) *game {
-	exec.Command("stty","-F","/dev/tty","cbreak","min","1").Run()
-	exec.Command("stty","-F","/dev/tty","-echo").Run()
+	exec.Command("stty", "-F", "/dev/tty", "cbreak", "min", "1").Run()
+	exec.Command("stty", "-F", "/dev/tty", "-echo").Run()
 	var (
 		lvl = newLevel(width, height)
 		inp = &input{}
