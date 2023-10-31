@@ -11,6 +11,11 @@ const (
 	nothing = 0
 )
 
+type level struct {
+	width, height int
+	data          [][]byte
+}
+
 type game struct {
 	isRunning bool
 }
