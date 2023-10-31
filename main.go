@@ -31,6 +31,7 @@ type position struct {
 type player struct {
 	pos     position
 	level   *level
+	input   *input
 	reverce bool
 }
 
@@ -116,17 +117,21 @@ type game struct {
 	level     *level
 	stats     *stats
 	player    *player
+	input     *input
 	drawBuf   *bytes.Buffer
 }
 
 func newGame(width, height int) *game {
 	lvl := newLevel(width, height)
+	inp := &input{}
 	return &game{
 		level:   lvl,
 		drawBuf: new(bytes.Buffer),
 		stats:   newStats(),
+		input:   &input{},
 		player: &player{
 			level: lvl,
+			input: inp,
 			pos: position{
 				x: 2,
 				y: 5,
