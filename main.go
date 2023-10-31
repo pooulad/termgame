@@ -122,8 +122,10 @@ type game struct {
 }
 
 func newGame(width, height int) *game {
-	lvl := newLevel(width, height)
-	inp := &input{}
+	var (
+		lvl = newLevel(width, height)
+		inp = &input{}
+	)
 	return &game{
 		level:   lvl,
 		drawBuf: new(bytes.Buffer),
