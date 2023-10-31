@@ -71,6 +71,7 @@ func newLevel(width, height int) *level {
 type game struct {
 	isRunning bool
 	level     *level
+	stats     *stats
 	drawBuf   *bytes.Buffer
 }
 
@@ -91,6 +92,7 @@ func (g *game) loop() {
 	for g.isRunning {
 		g.update()
 		g.render()
+		g.stats.update()
 		time.Sleep(time.Millisecond * 13)
 	}
 }
@@ -120,7 +122,7 @@ func (g *game) render() {
 
 func (g *game) renderStats() {
 	g.drawBuf.WriteString("-- STATS\n")
-	g.drawBuf.WriteString(fmt.Sprintf("FPS: %.2f", 3.3))
+	g.drawBuf.WriteString(fmt.Sprintf("FPS: %.2f", g.stats.fps))
 }
 
 func main() {
