@@ -19,6 +19,12 @@ func (g *game) start() {
 	g.isRunning = true
 	g.loop()
 }
+func (g *game) loop() {
+	for g.isRunning {
+		g.update()
+		g.render()
+	}
+}
 func (g *game) update() {}
 func (g *game) render() {}
 
