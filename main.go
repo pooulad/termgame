@@ -95,4 +95,7 @@ func (g *game) render() {
 func main() {
 	width := 80
 	height := 18
+
+	g := newGame(width, height)
+	g.start()
 }
