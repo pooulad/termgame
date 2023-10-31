@@ -20,6 +20,7 @@ type input struct {
 }
 
 func (i *input) update() {
+	i.pressedKey = 0
 	b := make([]byte, 1)
 
 	go func() {
