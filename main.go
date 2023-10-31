@@ -79,6 +79,11 @@ func newLevel(width, height int) *level {
 		height: height,
 	}
 }
+
+func (l *level) set(pos position, v int) {
+	l.data[pos.x][pos.y] = v
+}
+
 type game struct {
 	isRunning bool
 	level     *level
