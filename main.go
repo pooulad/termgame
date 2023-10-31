@@ -13,6 +13,12 @@ const (
 	MAX_SAMPLES = 100
 )
 
+type stats struct {
+	start  time.Time
+	frames int
+	fps    float64
+}
+
 type level struct {
 	width, height int
 	data          [][]byte
