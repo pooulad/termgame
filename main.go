@@ -31,6 +31,7 @@ func (s *stats) update() {
 	if s.frames == MAX_SAMPLES {
 		s.fps = float64(s.frames) / float64(time.Since(s.start).Seconds())
 		s.frames = 0
+		s.start = time.Now()
 	}
 }
 
@@ -80,6 +81,7 @@ func newGame(width, height int) *game {
 	return &game{
 		level:   lvl,
 		drawBuf: new(bytes.Buffer),
+		stats:   newStats(),
 	}
 }
 
