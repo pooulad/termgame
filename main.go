@@ -7,9 +7,10 @@ import (
 )
 
 const (
-	player  = 69
-	wall    = 1
-	nothing = 0
+	PLAYER      = 69
+	WALL        = 1
+	NOTHING     = 0
+	MAX_SAMPLES = 100
 )
 
 type level struct {
@@ -27,16 +28,16 @@ func newLevel(width, height int) *level {
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
 			if w == width-1 {
-				data[h][w] = wall
+				data[h][w] = WALL
 			}
 			if w == 0 {
-				data[h][w] = wall
+				data[h][w] = WALL
 			}
 			if h == 0 {
-				data[h][w] = wall
+				data[h][w] = WALL
 			}
 			if h == height-1 {
-				data[h][w] = wall
+				data[h][w] = WALL
 			}
 		}
 	}
@@ -76,10 +77,10 @@ func (g *game) update() {}
 func (g *game) renderLevel() {
 	for h := 0; h < g.level.height; h++ {
 		for w := 0; w < g.level.width; w++ {
-			if g.level.data[h][w] == nothing {
+			if g.level.data[h][w] == NOTHING {
 				g.drawBuf.WriteString(" ")
 			}
-			if g.level.data[h][w] == wall {
+			if g.level.data[h][w] == WALL {
 				g.drawBuf.WriteString("□")
 			}
 		}
