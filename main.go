@@ -145,7 +145,7 @@ func (g *game) renderLevel() {
 				g.drawBuf.WriteString("□")
 			}
 			if g.level.data[h][w] == PLAYER {
-				g.drawBuf.WriteString("0")
+				g.drawBuf.WriteString("♛")
 			}
 		}
 		g.drawBuf.WriteString("\n")
