@@ -91,4 +91,8 @@ func (g *game) render() {
 	g.renderLevel()
 	fmt.Fprint(os.Stdout, g.drawBuf.String())
 }
+
+func main() {
+	width := 80
+	height := 18
 }
