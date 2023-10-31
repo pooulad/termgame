@@ -128,6 +128,9 @@ func (g *game) renderLevel() {
 			if g.level.data[h][w] == WALL {
 				g.drawBuf.WriteString("□")
 			}
+			if g.level.data[h][w] == PLAYER {
+				g.drawBuf.WriteString("0")
+			}
 		}
 		g.drawBuf.WriteString("\n")
 	}
