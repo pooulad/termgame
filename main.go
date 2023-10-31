@@ -20,6 +20,12 @@ type stats struct {
 	fps    float64
 }
 
+func newStats() *stats {
+	return &stats{
+		start: time.Now(),
+	}
+}
+
 type level struct {
 	width, height int
 	data          [][]byte
