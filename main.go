@@ -47,10 +47,14 @@ func newLevel(width, height int) *level {
 }
 type game struct {
 	isRunning bool
+	level     *level
 }
 
 func newGame(width, height int) *game {
-	return &game{}
+	lvl := newLevel(width, height)
+	return &game{
+		level: lvl,
+	}
 }
 
 func (g *game) start() {
