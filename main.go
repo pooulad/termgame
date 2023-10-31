@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 const (
 	player  = 69
 	wall    = 1
@@ -27,4 +29,5 @@ func main() {
 			level[h][w] = wall
 		}
 	}
+	fmt.Println("test")
 }
