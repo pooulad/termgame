@@ -20,13 +20,29 @@ type input struct {
 }
 
 func (i *input) update() {
-	i.pressedKey = 0
-	b := make([]byte, 1)
-
-	go func() {
-		os.Stdin.Read(b)
-		i.pressedKey = b[0]
-	}()
+	// i.pressedKey = 0
+	// 	tick := time.NewTicker(time.Microsecond * 2)
+	// free:
+	// 	for {
+	// 		select {
+	// 		case <-tick.C:
+	// 			break free
+	// 		default:
+	// 			b := make([]byte, 1)
+	// 			os.Stdin.Read(b)
+	// 			i.pressedKey = b[0]
+	// 		}
+	// 	}
+	// 	// ch := make(chan byte)
+	// 	// tick := time.NewTicker(time.Millisecond * 2)
+	// 	// go func() {
+	// 	// ch <- b[0]
+	// 	// }()
+	// // select {
+	// // case key := <-ch:
+	// // case <-tick.C:
+	// // 	return
+	// // }
 }
 
 type position struct {
