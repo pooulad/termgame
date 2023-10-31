@@ -47,14 +47,14 @@ func (s *stats) update() {
 
 type level struct {
 	width, height int
-	data          [][]byte
+	data          [][]int
 }
 
 func newLevel(width, height int) *level {
-	data := make([][]byte, 18)
+	data := make([][]int, 18)
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
-			data[h] = make([]byte, width)
+			data[h] = make([]int, width)
 		}
 	}
 	for h := 0; h < height; h++ {
