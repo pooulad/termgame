@@ -82,6 +82,7 @@ type game struct {
 	isRunning bool
 	level     *level
 	stats     *stats
+	player    *player
 	drawBuf   *bytes.Buffer
 }
 
@@ -91,6 +92,7 @@ func newGame(width, height int) *game {
 		level:   lvl,
 		drawBuf: new(bytes.Buffer),
 		stats:   newStats(),
+		player:  &player{},
 	}
 }
 
