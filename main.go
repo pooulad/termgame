@@ -54,7 +54,8 @@ type game struct {
 func newGame(width, height int) *game {
 	lvl := newLevel(width, height)
 	return &game{
-		level: lvl,
+		level:   lvl,
+		drawBuf: new(bytes.Buffer),
 	}
 }
 
@@ -62,6 +63,7 @@ func (g *game) start() {
 	g.isRunning = true
 	g.loop()
 }
+
 func (g *game) loop() {
 	for g.isRunning {
 		g.update()
@@ -69,23 +71,18 @@ func (g *game) loop() {
 	}
 }
 func (g *game) update() {}
-func (g *game) render() {}
 
-func main() {
-	width := 80
-	height := 18
-
-	buf := new(bytes.Buffer)
-	for h := 0; h < height; h++ {
-		for w := 0; w < width; w++ {
-			if level[h][w] == nothing {
-				buf.WriteString(" ")
+func (g *game) renderLevel() {
+	for h := 0; h < g.level.height; h++ {
+		for w := 0; w < g.level.width; w++ {
+			if g.level.data[h][w] == nothing {
+				g.drawBuf.WriteString(" ")
 			}
-			if level[h][w] == wall {
-				buf.WriteString("□")
+			if g.level.data[h][w] == wall {
+				g.drawBuf.WriteString("□")
 			}
 		}
-		buf.WriteString("\n")
+		g.drawBuf.WriteString("\n")
 	}
 	fmt.Println(buf.String())
 }
