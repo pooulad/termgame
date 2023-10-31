@@ -26,6 +26,14 @@ func newStats() *stats {
 	}
 }
 
+func (s *stats) update() {
+	s.frames++
+	if s.frames == MAX_SAMPLES {
+		s.fps = float64(s.frames) / float64(time.Since(s.start).Seconds())
+		s.frames = 0
+	}
+}
+
 type level struct {
 	width, height int
 	data          [][]byte
