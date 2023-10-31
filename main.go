@@ -84,5 +84,10 @@ func (g *game) renderLevel() {
 		}
 		g.drawBuf.WriteString("\n")
 	}
-	fmt.Println(buf.String())
+}
+
+func (g *game) render() {
+	g.renderLevel()
+	fmt.Fprint(os.Stdout, g.drawBuf.String())
+}
 }
