@@ -25,7 +25,19 @@ type player struct {
 }
 
 func (p *player) update() {
+	if p.reverce {
+		p.pos.x -= 1
+		if p.pos.x == 2 {
+			p.pos.x += 1
+			p.reverce = false
+		}
+		return
+	}
 	p.pos.x += 1
+	if p.pos.x == p.level.width-2 {
+		p.pos.x -= 1
+		p.reverce = true
+	}
 }
 
 type stats struct {
