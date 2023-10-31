@@ -126,7 +126,9 @@ func (g *game) loop() {
 	}
 }
 func (g *game) update() {
+	g.level.set(g.player.pos, NOTHING)
 	g.player.update()
+	g.level.set(g.player.pos, PLAYER)
 }
 
 func (g *game) renderPlayer() {
