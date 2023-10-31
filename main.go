@@ -23,6 +23,10 @@ type player struct {
 	level *level
 }
 
+func (p *player) update() {
+	// p.pos.x += 1
+}
+
 type stats struct {
 	start  time.Time
 	frames int
