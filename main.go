@@ -16,6 +16,33 @@ type level struct {
 	data          [][]byte
 }
 
+func newLevel(width, height int) *level {
+	data := make([][]byte, 18)
+	for h := 0; h < height; h++ {
+		for w := 0; w < width; w++ {
+			data[h] = make([]byte, width)
+		}
+	}
+	for h := 0; h < height; h++ {
+		for w := 0; w < width; w++ {
+			if w == width-1 {
+				data[h][w] = wall
+			}
+			if w == 0 {
+				data[h][w] = wall
+			}
+			if h == 0 {
+				data[h][w] = wall
+			}
+			if h == height-1 {
+				data[h][w] = wall
+			}
+		}
+	}
+	return &level{
+		data: data,
+	}
+}
 type game struct {
 	isRunning bool
 }
