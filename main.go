@@ -12,8 +12,13 @@ const (
 )
 
 type game struct {
+	isRunning bool
 }
 
+func (g *game) start() {
+	g.isRunning = true
+	g.loop()
+}
 func (g *game) update() {}
 func (g *game) render() {}
 
