@@ -24,7 +24,7 @@ type player struct {
 }
 
 func (p *player) update() {
-	// p.pos.x += 1
+	p.pos.x += 1
 }
 
 type stats struct {
@@ -85,7 +85,7 @@ func newLevel(width, height int) *level {
 }
 
 func (l *level) set(pos position, v int) {
-	l.data[pos.x][pos.y] = v
+	l.data[pos.y][pos.x] = v
 }
 
 type game struct {
@@ -130,7 +130,7 @@ func (g *game) update() {
 }
 
 func (g *game) renderPlayer() {
-	g.level.data[g.player.pos.y][g.player.pos.x] = PLAYER
+	g.level.set(g.player.pos, 69)
 }
 
 func (g *game) renderLevel() {
