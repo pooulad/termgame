@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"os/exec"
 	"time"
 )
 
@@ -122,6 +123,8 @@ type game struct {
 }
 
 func newGame(width, height int) *game {
+	exec.Command("stty","-F","/dev/tty","cbreak","min","1").Run()
+	exec.Command("stty","-F","/dev/tty","-echo").Run()
 	var (
 		lvl = newLevel(width, height)
 		inp = &input{}
