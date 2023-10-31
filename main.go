@@ -196,6 +196,7 @@ func (g *game) render() {
 func (g *game) renderStats() {
 	g.drawBuf.WriteString("-- STATS\n")
 	g.drawBuf.WriteString(fmt.Sprintf("FPS: %.2f", g.stats.fps))
+	g.drawBuf.WriteString(fmt.Sprintf("KEYPRESS: %v", g.input.pressedKey))
 }
 
 func main() {
