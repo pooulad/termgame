@@ -14,6 +14,10 @@ const (
 	MAX_SAMPLES = 100
 )
 
+type position struct {
+	x, y int
+}
+
 type stats struct {
 	start  time.Time
 	frames int
