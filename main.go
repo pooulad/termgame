@@ -46,6 +46,9 @@ func main() {
 	buf := new(bytes.Buffer)
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
+			if level[h][w] == nothing {
+				buf.WriteString(" ")
+			}
 			if level[h][w] == wall {
 				buf.WriteString("H")
 			}
