@@ -119,6 +119,10 @@ func (g *game) update() {
 	g.player.update()
 }
 
+func (g *game) renderPlayer() {
+	g.level.data[g.player.pos.y][g.player.pos.x] = PLAYER
+}
+
 func (g *game) renderLevel() {
 	for h := 0; h < g.level.height; h++ {
 		for w := 0; w < g.level.width; w++ {
@@ -140,6 +144,7 @@ func (g *game) render() {
 	g.drawBuf.Reset()
 	fmt.Fprint(os.Stdout, "\033[2J\033[1;1H")
 	g.renderLevel()
+	g.renderPlayer()
 	g.renderStats()
 	fmt.Fprint(os.Stdout, g.drawBuf.String())
 }
