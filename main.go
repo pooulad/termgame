@@ -18,7 +18,7 @@ func (g *game) update() {}
 func (g *game) render() {}
 
 func main() {
-	width := 20
+	width := 80
 	height := 20
 	level := make([][]byte, 20)
 
