@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+)
 
 const (
 	player  = 69
@@ -29,5 +32,14 @@ func main() {
 			level[h][w] = wall
 		}
 	}
-	fmt.Println("test")
+	buf := new(bytes.Buffer)
+	for h := 0; h < height; h++ {
+		for w := 0; w < width; w++ {
+			if level[h][w] == wall{
+				buf.WriteString("H")
+			}
+		}
+		buf.WriteString("\n")
+	}
+	fmt.Println(buf.String())
 }
