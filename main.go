@@ -14,6 +14,10 @@ const (
 	MAX_SAMPLES = 100
 )
 
+type input struct {
+	pressedKey byte
+}
+
 type position struct {
 	x, y int
 }
