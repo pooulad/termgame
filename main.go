@@ -92,7 +92,13 @@ func newGame(width, height int) *game {
 		level:   lvl,
 		drawBuf: new(bytes.Buffer),
 		stats:   newStats(),
-		player:  &player{},
+		player: &player{
+			level: lvl,
+			pos: position{
+				x: 2,
+				y: 5,
+			},
+		},
 	}
 }
 
