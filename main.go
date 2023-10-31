@@ -15,6 +15,10 @@ type game struct {
 	isRunning bool
 }
 
+func newGame(width, height int) *game {
+	return &game{}
+}
+
 func (g *game) start() {
 	g.isRunning = true
 	g.loop()
