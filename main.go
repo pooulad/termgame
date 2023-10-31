@@ -29,13 +29,15 @@ func main() {
 	}
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
-			level[h][w] = wall
+			if w == width-1 {
+				level[h][w] = wall
+			}
 		}
 	}
 	buf := new(bytes.Buffer)
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
-			if level[h][w] == wall{
+			if level[h][w] == wall {
 				buf.WriteString("H")
 			}
 		}
