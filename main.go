@@ -18,6 +18,12 @@ type input struct {
 	pressedKey byte
 }
 
+func (i *input) update() {
+	b := make([]byte, 0)
+	os.Stdin.Read(b)
+	i.pressedKey = b[0]
+}
+
 type position struct {
 	x, y int
 }
