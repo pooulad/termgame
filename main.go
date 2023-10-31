@@ -1,5 +1,11 @@
 package main
 
+const (
+	player  = 69
+	wall    = 1
+	nothing = 0
+)
+
 type game struct {
 }
 
@@ -18,7 +24,7 @@ func main() {
 	}
 	for h := 0; h < height; h++ {
 		for w := 0; w < width; w++ {
-			level[h][w] = 0
+			level[h][w] = wall
 		}
 	}
 }
